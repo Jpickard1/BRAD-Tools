@@ -22,11 +22,12 @@ Usage:
 
 **OUTPUT FILE NAME INSTRUCTIONS**
 1. Output path should be chatstatus['output-directory']
-2. Output file name should be `S0-<data set name>.csv`
+2. Output file name should be `S0-<data set name>.h5ad`
 """
 import os
 import sys
 import pandas as pd
+import anndata as an
 
 def main():
     outputPath = sys.argv[1] # chatstatus['output-directory']
@@ -36,18 +37,22 @@ def main():
     outputFile = os.path.join(outputPath, outputFile)
     
     print('******************************')
-    print('Dataset Selector')
+    print('       Dataset Selector       ')
     print('******************************')
 
+    out_path = "/nfs/turbo/umms-indikar/shared/projects/geneformer/data/rajapakse_lab_data.h5ad"
+    ad = an.read(out_path)
+    
     if dataset == '2015':
-        filepath = '/nfs/turbo/umms-indikar/Joshua/bioObsv/notebooks/obsvArticle/dataProcessing/2015_avg.csv'
+        ds = 'chen_2015'
     elif dataset == '2018':
-        filepath = '/nfs/turbo/umms-indikar/Joshua/bioObsv/notebooks/obsvArticle/dataProcessing/2018_avg.csv'
+        ds = 'liu_2018'
     else:
         print('Dataset is invalid!')
 
-    df = pd.read_csv(filepath)
-    df.to_csv(outputFile, index=False)
+    adDs = ad[ad.obs['dataset'] == ds]
+    adDs.write(outputFile)
+    
 
 if __name__ == "__main__":
     main()
