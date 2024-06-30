@@ -40,7 +40,7 @@ def main():
     print('       Dataset Selector       ')
     print('******************************')
 
-    out_path = "/nfs/turbo/umms-indikar/shared/projects/geneformer/data/rajapakse_lab_data.h5ad"
+    out_path = "/nfs/turbo/umms-indikar/shared/projects/geneformer/data/rajapakse_lab_data_jpic.h5ad"
     ad = an.read(out_path)
     
     if dataset == '2015':
