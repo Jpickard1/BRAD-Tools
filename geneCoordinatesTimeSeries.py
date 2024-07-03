@@ -15,7 +15,7 @@ Usage:
                                                          Argument 1     Argument 2   Argument 3
     BRAD Line:
     ```
-    subprocess.call([sys.executable, '<path/to/script/>/geneCoordinateTimeSeries.py', chatstatus['output-directory'], <output file>, <input file>])
+    subprocess.run([sys.executable, '<path/to/script/>/geneCoordinateTimeSeries.py', chatstatus['output-directory'], <output file>, <input file>], capture_output=True, text=True)
     ```
 
 **OUTPUT FILE NAME INSTRUCTIONS**
@@ -35,6 +35,10 @@ def main():
     outputFile = sys.argv[2] # output file name
     dataset    = sys.argv[3] # input file
 
+    print('******************************')
+    print('  Convert to Gene Coordinates ')
+    print('******************************')
+    
     print('Dataset=', end='')
     print(dataset)
 

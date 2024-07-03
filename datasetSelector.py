@@ -17,7 +17,7 @@ Usage:
                                                           Argument 1     Argument 2   Argument 3
     BRAD Line:
     ```
-    subprocess.call([sys.executable, '<path/to/script/>/datasetSelector.py', chatstatus['output-directory'], <output file>, <gene name>])
+    subprocess.run([sys.executable, '<path/to/script/>/datasetSelector.py', chatstatus['output-directory'], <output file>, <gene name>], capture_output=True, text=True)
     ```
 
 **OUTPUT FILE NAME INSTRUCTIONS**

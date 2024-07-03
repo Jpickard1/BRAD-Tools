@@ -16,8 +16,40 @@ Usage:
                                                  Argument 1     Argument 2   Argument 3  Argument 4
     BRAD Line:
     ```
-    subprocess.call([sys.executable, '<path/to/script/>/buildLinearModel.py', chatstatus['output-directory'], <output file>, <input file>, <dmd rank>])
+    subprocess.call([sys.executable, '<path/to/script/>/buildLinearModel.py', chatstatus['output-directory'], <output file>, <input file>, <dmd rank>], capture_output=True, text=True)
     ```
+
+Dynamic Mode Decomposition (DMD):
+--------------------------------
+DMD is a data-driven modeling method that decomposes a given dataset into a collection of dynamic modes, each associated with a fixed frequency, growth/decay rate, and amplitude. The key idea is to approximate the linear dynamics of the system using snapshots of data.
+
+Given a sequence of snapshots X = [x1, x2, ..., xm] and Y = [x2, x3, ..., xm+1], where each snapshot xi represents the state of the system at time ti, DMD seeks to find a matrix A such that:
+
+    Y ≈ AX
+
+To achieve this, DMD solves the following optimization problem:
+
+    A = Y X^†
+
+where X^† is the pseudoinverse of X.
+
+To compute the DMD modes and eigenvalues, we perform the following steps:
+1. Compute the Singular Value Decomposition (SVD) of X:
+   
+    X = UΣV*
+
+2. Approximate A using the reduced-order model:
+   
+    Ã = U^* Y V Σ^(-1)
+
+3. Compute the eigendecomposition of Ã:
+   
+    ÃW = WΛ
+
+where Λ contains the eigenvalues and W contains the eigenvectors (DMD modes).
+
+The DMD rank parameter controls the amount of reduced-order modeling. A value of -1 indicates no model reduction, using the full rank of the data matrix.
+
 
 **OUTPUT FILE NAME INSTRUCTIONS**
 1. Output path should be chatstatus['output-directory']
@@ -59,10 +91,6 @@ def main():
         pickle.dump(LTI, file)
     
     print(f"Model saved to {output_file_path}")
-
-if __name__ == "__main__":
-    main()
-
 
 if __name__ == "__main__":
     main()
