@@ -1,5 +1,5 @@
 """
-This script is a file chooser to load a gene expression dataset from the lab's turbo partition to give access to the data to BRAD.
+datasetSelector.py is the script for loading or selecing datasets by name. This must be the first script run. This script is a file chooser to load a gene expression dataset from the lab's turbo partition to give access to the data to BRAD.
 
 Arguments (three arguments):
     1. output directory: chatstatus['output-directory']

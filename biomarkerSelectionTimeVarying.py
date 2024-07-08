@@ -5,8 +5,8 @@ Arguments (four arguments):
     1. output directory: chatstatus['output-directory']
     2. output file: <name of output file>
     3. input file: the file created previously with the LTI or LTV model
-    4. start time: (int, default 0) the first time to select sensors at (inclusive)
-    5. end time: (int, default 10) the last time to select sensors at (not inclusive)
+    4. start time: (int, default 0) the first time to select sensors at (inclusive), ex: 0
+    5. end time: (int, default 10) the last time to select sensors at (not inclusive), ex: 10
     6. verbose: (optional, True or False) if sensor selection should be run in verbose mode so that more output will be displayed to the user.    
 
 Usage:
@@ -19,6 +19,8 @@ BRAD Line:
 ```
 subprocess.call([sys.executable, '<path/to/script/>/biomarkerSelectionTimeVarying.py', chatstatus['output-directory'], <output file>, <input file>, <start time>, <end time>, <verbose>], capture_output=True, text=True)
 ```
+
+*Always replace <path/to/script> with the correct path given above.*
 
 **OUTPUT FILE NAME INSTRUCTIONS**
 1. Output path should be chatstatus['output-directory']

@@ -8,16 +8,18 @@ Arguments (four arguments):
     4. DMD Rank: this parameter controls the amount reduced order modeling. A value of -1 indicates no model reduction
 
 Usage:
-    Command Line:
-    ```
-    python <path/to/script/>datasetSelector.py <output path> <output file> <input file> <dmd rank>
-    ```
-                                                     |              |            |           |
-                                                 Argument 1     Argument 2   Argument 3  Argument 4
-    BRAD Line:
-    ```
-    subprocess.call([sys.executable, '<path/to/script/>/buildLinearModel.py', chatstatus['output-directory'], <output file>, <input file>, <dmd rank>], capture_output=True, text=True)
-    ```
+Command Line:
+```
+python <path/to/script/>datasetSelector.py <output path> <output file> <input file> <dmd rank>
+```
+                                                 |              |            |           |
+                                             Argument 1     Argument 2   Argument 3  Argument 4
+BRAD Line:
+```
+subprocess.run([sys.executable, '<path/to/script/>/buildLinearModel.py', chatstatus['output-directory'], <output file>, <input file>, <dmd rank>], capture_output=True, text=True)
+```
+
+*Always replace <path/to/script> with the correct path given above.*
 
 Dynamic Mode Decomposition (DMD):
 --------------------------------

@@ -16,8 +16,10 @@ python <path/to/script/>biomarkerSelection.py <output path> <output file> <input
                                                 Argument 1     Argument 2   Argument 3          Argument 4
 BRAD Line:
 ```
-subprocess.call([sys.executable, '<path/to/script/>/buildLinearModel.py', chatstatus['output-directory'], <output file>, <input file>, <Gramian summation bound>])
+subprocess.run([sys.executable, '<path/to/script/>/buildLinearModel.py', chatstatus['output-directory'], <output file>, <input file>, <Gramian summation bound>], capture_output=True, text=True)
 ```
+
+*Always replace <path/to/script> with the correct path given above.*
 
 **OUTPUT FILE NAME INSTRUCTIONS**
 1. Output path should be chatstatus['output-directory']

@@ -7,16 +7,19 @@ Arguments (three arguments):
     3. input file: <file created in previous step>
 
 Usage:
-    Command Line:
-    ```
-    python <path/to/script/>geneCoordinateTimeSeries.py <output path> <output file> <input file>
-    ```
-                                                             |              |           |
-                                                         Argument 1     Argument 2   Argument 3
-    BRAD Line:
-    ```
-    subprocess.run([sys.executable, '<path/to/script/>/geneCoordinateTimeSeries.py', chatstatus['output-directory'], <output file>, <input file>], capture_output=True, text=True)
-    ```
+
+Command Line:
+```
+python <path/to/script/>geneCoordinateTimeSeries.py <output path> <output file> <input file>
+```
+                                                         |              |           |
+                                                     Argument 1     Argument 2   Argument 3
+BRAD Line:
+```
+subprocess.run([sys.executable, '<path/to/script/>/geneCoordinateTimeSeries.py', chatstatus['output-directory'], <output file>, <input file>], capture_output=True, text=True)
+```
+
+*Always replace <path/to/script> with the correct path given above.*
 
 **OUTPUT FILE NAME INSTRUCTIONS**
 1. Output path should be chatstatus['output-directory']
